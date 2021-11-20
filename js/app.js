@@ -1,5 +1,12 @@
 'use strict'
 
+if(localStorage.getItem("win") === true){
+  localStorage.setItem("win", false);
+  localStorage.setItem("points", 0);
+  window.location.href = "/index.html";
+}
+
+
 let db = [
 
   {
@@ -21,8 +28,6 @@ let escapekey = '';
 
 
 let roomTotalTime = 130;
-
-(function foo() {
 
   const countdown = setInterval(function () {
 
@@ -50,12 +55,12 @@ let roomTotalTime = 130;
 
     if (roomTotalTime <= 0) {
       clearInterval(countdown);
-      alert('Game Over.')
+      alert('Game Over.');
+      localStorage.setItem("win", false);
       window.location.href = "/gameOver.html";
     }
 
   }, 1000);
-})();
 
 
 //what is the order of tests in the escape key?
@@ -124,7 +129,8 @@ chest.addEventListener('click', function () {
   let roomExitTest = prompt('What is the password to leave?');
   if (roomExitTest === escapekey) {
     console.log('Congrats, you\'ve made it out');
-    win = true;
+    localStorage.setItem("win", true);
+    localStorage.setItem("points", roomTotalTime);
     window.location.href = "/gameOver.html";
   } else {
     console.log('Sorry, wrong key!');
