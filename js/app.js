@@ -19,42 +19,6 @@ let escapekey = '';
 
 
 
-let roomTotalTime = 130;
-
-(function foo(){
-
-  const countdown = setInterval(function () {
-
-    let seconds = 60;
-    let minutes = 60;
-
-    let minutesLeft = Math.trunc(roomTotalTime / minutes)
-
-    let secondsLeft = Math.trunc(roomTotalTime % minutes)
-
-    //Forget CUP, let's modify directly for time
-    if (minutesLeft < 10) {
-      document.querySelector('#minutes').innerHTML = '0' + minutesLeft;
-    } else {
-      document.querySelector('#minutes').innerHTML = minutesLeft;
-    }
-
-    if (secondsLeft < 10) {
-      document.querySelector('#seconds').innerHTML = '0' + secondsLeft;
-    } else {
-      document.querySelector('#seconds').innerHTML = secondsLeft;
-    }
-
-    roomTotalTime--;
-
-    if (roomTotalTime <= 0) {
-      clearInterval(countdown);
-    }
-
-  }, 1000);
-})();
-
-
 //what is the order of tests in the escape key?
 // 1. Box 2.JIB 3.Book
 //2 needed to start for logical test 
@@ -62,8 +26,7 @@ let roomTotalTime = 130;
 //escapekey needs to equal "2||4||6&&"
 
 
-
-
+for(let i=0; i<2; i++){
 
  let randomQuestion = Math.floor(Math.random()*db.length);
  console.log(randomQuestion);
@@ -75,7 +38,8 @@ let res = prompt(db[randomQuestion].question);
 
 
 if(res == db[randomQuestion].answer) {
-
+ // console.log(+res);
+ // console.log('res: '+res);
  escapekey += res;
 }else{
 
@@ -84,7 +48,7 @@ if(res == db[randomQuestion].answer) {
 console.log(escapekey);
 
 
-
+// }
 
 let initial1 = prompt('What is your first initial?');
 let initial2 = prompt('What is your middle initial (if you don\'t have one, select "x"');
@@ -114,4 +78,10 @@ if(roomExitTest === escapekey){
  console.log('Sorry, wrong key!');
 }
 
+}
 
+
+
+let answer = document.prompt(db[0].question);
+
+console.log(answer);
