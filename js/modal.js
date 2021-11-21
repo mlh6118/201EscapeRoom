@@ -47,7 +47,46 @@ modaldiv.appendChild(star1);
 
   // console.log(star1);
 
+ }else if(type == 'book'){
+
+  let bookForm = `<div>
+  <p>
+    ${res}
+  </p>
+  <form method="POST">
+  <label for="answer">Answer: </label><input type="text" id="answer" name="answer">
+  <button id='enterBook'>Submit</button>
+  </form>
+  </div>`;
+  let bookformdiv = document.createElement('div');
+  bookformdiv.id = 'bookformdiv';
+  bookformdiv.innerHTML = bookForm;
+  // let x = document.getElementsByTagName('body');
+  modaldiv.appendChild(bookformdiv);
+
+  let bookEnter = document.getElementById('enterBook');
+
+  bookEnter.addEventListener('click', function (event) {
+    // alert('You are in bookEnter');
+    event.preventDefault();
+
+    if (answer.value == db[randomQuestion].answer) {
+      escapekey += answer.value;
+      refreshEscapeKey(escapekey);
+    } else {
+      console.log('false');
+    }
+
+    let removeModal = document.getElementById('modal');
+    // document.removeChild(removeModal);
+    removeModal.remove();
+  
+    console.log(escapekey);
+
+    console.log(res);
+  });
  }
+
 
 }
 

@@ -62,7 +62,7 @@ const countdown = setInterval(function () {
 
 }, 1000);
 
-
+let res = '';
 //what is the order of tests in the escape key?
 // 1. BOOK 2. JIB 3. Blocks
 //2 needed to start for logical test 
@@ -77,26 +77,16 @@ let jib = document.getElementById('jib');
 let blocks = document.getElementById('blocks');
 let chest = document.getElementById('chest');
 
+let randomQuestion = '';
 
 book.addEventListener('click', function () {
-  let randomQuestion = Math.floor(Math.random() * db.length);
+  randomQuestion = Math.floor(Math.random() * db.length);
   console.log(randomQuestion);
-  let res = prompt(db[randomQuestion].question);
+  res = db[randomQuestion].question;
 
-
-
-  if (res == db[randomQuestion].answer) {
-    escapekey += res;
-    refreshEscapeKey(escapekey);
-  } else {
-    console.log('false');
-  }
-  console.log(escapekey);
+  let bookModal = new PromptModal('book');
 
 });
-
-
-
 
 let passwordNameArr = [];
 
@@ -121,18 +111,18 @@ blocks.addEventListener('click', function () {
 
 
 
-  console.log('nameArr:' + nameArr)
+    console.log('nameArr:' + nameArr)
 
 
     for (let j = nameArr.length; j--;) {
-  let randomName = Math.floor(Math.random() * nameArr.length);
-  console.log('j: '+j, 'randomName: '+randomName, 'nameArr :'+nameArr, 'nameArr.length: '+nameArr.length);
-  // passwordNameArr.(nameArr[randomName]);
-    let newLetter = nameArr.splice(randomName,1);
-    passwordNameArr.push(newLetter);
-  }
+      let randomName = Math.floor(Math.random() * nameArr.length);
+      console.log('j: ' + j, 'randomName: ' + randomName, 'nameArr :' + nameArr, 'nameArr.length: ' + nameArr.length);
+      // passwordNameArr.(nameArr[randomName]);
+      let newLetter = nameArr.splice(randomName, 1);
+      passwordNameArr.push(newLetter);
+    }
 
-  console.log('nameArr: ' + nameArr, 'passwordNameArr: ' + passwordNameArr)
+    console.log('nameArr: ' + nameArr, 'passwordNameArr: ' + passwordNameArr)
 
 
     let formFinished = document.getElementById('formdiv');
@@ -345,7 +335,8 @@ chest.addEventListener('click', function () {
 
 // // console.log(star1.dom.className);
 
-function refreshEscapeKey(escapekey){
+function refreshEscapeKey(escapekey) {
   let balloons = document.getElementById('balloons');
   balloons.textContent = escapekey;
 }
+
