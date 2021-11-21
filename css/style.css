@@ -1,0 +1,68 @@
+* {
+  box-sizing: border-box;
+}
+
+body header {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 35px;
+  text-align: center;
+  margin: 5px 0 15px 0;
+}
+
+main div p {
+  font-family: 'Caveat Brush', cursive;
+  font-size: 25px;
+  margin: 0 0 0 50px;
+}
+
+#enterRoom {
+  display: block;
+  margin: 0 auto;
+}
+
+#aboutUs {
+  height: 100px;
+  position: absolute;
+  top: 300px;
+  left: 740px;
+}
+
+.david {
+  font-family: 'Caveat Brush', cursive;
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+}
+
+#davidPic {
+  height: 250px;
+  float: left;
+  margin: 0 0 15px 15px;
+}
+
+.marni {
+  font-family: 'Caveat Brush', cursive;
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+}
+
+#marniPic {
+  height: 250px;
+  float: left;
+  margin: 15px 0 15px 15px;
+}
+
+.marni>p {
+  width: 960px;
+}
+
+a:visited {
+  color: blue;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  margin: 15px;  
+}
