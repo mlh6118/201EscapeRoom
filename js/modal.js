@@ -1,5 +1,7 @@
 'use strict'
 
+
+
 function PromptModal(type){
 
  let mainbody = document.getElementsByTagName('body')[0];
@@ -27,28 +29,26 @@ function PromptModal(type){
 
 
 
-  let enter = document.getElementById('enter');
-  // console.log(enter);
-  enter.addEventListener('click', function(e){
-   console.log(e);
-   e.preventDefault();
-   alert('I was pressed');
-   var inputValue = document.getElementById('letter1').value
-   var inputValue = document.getElementById('letter2').value
-   var inputValue = document.getElementById('letter3').value
-   // let letter1 = 
-  });
-
  }else if(type == 'jib'){
 
 // Create new Star objects.
-let star1 = new Star(starImage1);
-let star2 = new Star(starImage2);
-let star3 = new Star(starImage3);
 
+let star1 = document.createElement('img');
+star1.id = 'star1';
+modaldiv.appendChild(star1);
+
+  let star2 = document.createElement('img');
+  star2.id = 'star2';
+  modaldiv.appendChild(star2);
+
+  let star3 = document.createElement('img');
+  star3.id = 'star3';
+  modaldiv.appendChild(star3);
+
+  // console.log(star1);
 
  }
 
 }
 
-let helloWorld = new PromptModal('blocks');
+// let helloWorld = new PromptModal('blocks');
