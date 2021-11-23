@@ -17,7 +17,7 @@ function PromptModal(type){
 
  let form = `<form method="POST">
  <label for="letter1">First Initial</label><input type="text" id="letter1" name="letter1">
- <label for="letter2">Middle Initial</label><input type="text" id="letter2" name="letter2" placeholder="If you have no middle initial, use 'x'">
+ <label for="letter2">Middle Initial</label><input type="text" id="letter2" name="letter2" placeholder="If none, use 'x'">
  <label for="letter3">Last Initial</label><input type="text" id="letter3" name="letter3">
  <button id='enter'>Submit</button>
  </form>`;
@@ -33,9 +33,9 @@ function PromptModal(type){
 
 // Create new Star objects.
 
-let star1 = document.createElement('img');
-star1.id = 'star1';
-modaldiv.appendChild(star1);
+  let star1 = document.createElement('img');
+  star1.id = 'star1';
+  modaldiv.appendChild(star1);
 
   let star2 = document.createElement('img');
   star2.id = 'star2';
@@ -73,6 +73,7 @@ modaldiv.appendChild(star1);
     if (answer.value == db[randomQuestion].answer) {
       escapekey += answer.value;
       refreshEscapeKey(escapekey);
+
     } else {
       console.log('false');
     }

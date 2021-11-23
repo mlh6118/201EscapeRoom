@@ -6,16 +6,46 @@
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <title>Escape the Kid's Room!</title>
    <link href="css/reset.css" rel="stylesheet">
-   <link href="css/style.css" rel="stylesheet">
+   <link href="css/newStyle.css" rel="stylesheet">
 </head>
-<body>
- <div id="timerDiv"><div id="minutes"></div>:<div id="seconds"></div></div>
- <div id="balloons"></div>
-<button id="book">Book Quiz</button>
-<button id="jib">JIB Quiz</button>
-<button id="blocks">Blocks Quiz</button>
-<button id="chest">Chest Escape</button>
+<body class="gamePage">
+ <div id="timerDiv"><img id="digitalClock" src="imgs/digitalClock2.png"><div id="minutes"></div><div id="timeDivider">:</div><div id="seconds"></div></div>
+  <div id="randomInitials">
 
+  </div>
+
+  <img src="imgs/room.png" usemap="#image-map">
+  <map name="image-map">
+      <area target="" alt="" title="" coords="656,620,653,592,677,584,677,568,689,559,716,561,718,585,734,588,733,619,721,629,693,625,667,629,655,620" shape="poly">
+      <area target="" alt="" title="" coords="892,378,889,414,901,421,930,411,927,373,916,364" shape="poly">
+      <area target="" alt="" title="" coords="400,506,403,443,435,417,491,436,512,438,518,453,514,506,478,533,436,521" shape="poly">
+      <area target="" alt="Green" title="Green" href="" coords="465,139,35" shape="circle">
+      <area target="" alt="Yellow" title="Yellow" href="" coords="549,139,36" shape="circle">
+      <area target="" alt="Blue" title="Blue" href="" coords="505,187,29" shape="circle">
+  </map>
+ 
+  <!-- <div id="balloons">
+   <div id="yellow">
+     <img src="imgs/yellowBalloon.png">
+    </div>
+    <div id="blue">
+      <img src="imgs/blueBalloon.png">
+    </div>
+    <div id="green">
+      <img src="imgs/greenBalloon.png">
+    </div> -->
+
+
+    <!-- <button id="book">Book Quiz</button> -->
+<!-- <button id="jib">JIB Quiz</button> -->
+<!-- <button id="blocks">Blocks Quiz</button> -->
+<!-- <button id="chest">Chest Escape</button> -->
+
+<!-- <img id="book" src="imgs/book.png"> -->
+<img id="jib" src="imgs/closedJack.png">
+<!-- <img id="blocks" src="imgs/blocks.png"> -->
+<!-- <img id="chest" src="imgs/treasureChestClosed.png"> -->
+<div id="pinkKey"><img id="key" src="imgs/pinkKey.png"></div>
 
  <script src="js/winner.js"></script>
  <script src="js/app.js"></script>

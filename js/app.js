@@ -1,5 +1,8 @@
 'use strict'
 
+// Hide key at start of game.
+document.getElementById('pinkKey').style.display = 'none';
+
 if (localStorage.getItem("win") === true) {
   localStorage.setItem("win", false);
   localStorage.setItem("points", 0);
@@ -27,7 +30,7 @@ let escapekey = '';
 
 
 
-let roomTotalTime = 130;
+let roomTotalTime = 900;
 
 const countdown = setInterval(function () {
 
@@ -72,10 +75,10 @@ let res = '';
 //Treasure Box escapes
 
 //selectors
-let book = document.getElementById('book');
+let book = document.querySelector('body > map > area:nth-child(2)');
 let jib = document.getElementById('jib');
-let blocks = document.getElementById('blocks');
-let chest = document.getElementById('chest');
+let blocks = document.querySelector('body > map > area:nth-child(1)');
+let chest = document.querySelector('body > map > area:nth-child(3)');
 
 let randomQuestion = '';
 
@@ -122,13 +125,18 @@ blocks.addEventListener('click', function () {
       passwordNameArr.push(newLetter);
     }
 
+    // Put initials in random order on the wall.
+    let randomInits = document.getElementById('randomInitials');
+    let initials = document.createElement('p');
+    initials.textContent = passwordNameArr;
+    randomInits.appendChild(initials);
+
     console.log('nameArr: ' + nameArr, 'passwordNameArr: ' + passwordNameArr)
 
 
     let formFinished = document.getElementById('formdiv');
     let modalbox = document.getElementById('modal');
     modalbox.removeChild(formFinished);
-
 
     let letter1 = document.createElement('div');
     letter1.id = 'letter1';
@@ -141,6 +149,10 @@ blocks.addEventListener('click', function () {
     let letter3 = document.createElement('div');
     letter3.id = 'letter3';
     modalbox.appendChild(letter3);
+
+    let instruction = document.createElement('p');
+    instruction.textContent = 'Change the order to match other letters in the room.';
+    modalbox.appendChild(instruction);
 
     let block1 = new Block(letter1, passwordNameArr);
     let block2 = new Block(letter2, passwordNameArr);
@@ -187,7 +199,7 @@ function Block(dom, passwordNameArr) {
 }
 
 
-// Function to check the stars.
+// Function to check the initials from Block Puzzle.
 function blockLetterCheck() {
   let blockdom1 = document.getElementById('letter1');
 
@@ -197,7 +209,10 @@ function blockLetterCheck() {
   // let jackBoxOpenClose = document.getElementById('jack-in-the-box');
   // alert('You have entered starSizeCheck');
   if (blockdom1.textContent == passwordNameArr[0] && blockdom2.textContent == passwordNameArr[1] && blockdom3.textContent == passwordNameArr[2]) {
-    alert('You are correct');
+    // alert('You are correct');
+    let removeModal = document.getElementById('modal');
+    // document.removeChild(removeModal);
+    removeModal.remove();
 
 
     let blockRandomNum = Math.floor(Math.random() * 10);
@@ -279,8 +294,10 @@ function starSizeCheck() {
   // let jackBoxOpenClose = document.getElementById('jack-in-the-box');
   // alert('You have entered starSizeCheck');
   if (star1.className === 'small' && star2.className === 'large' && star3.className === 'medium') {
-    alert('You are correct');
+    // alert('You are correct');
 
+    // Remove existing closedJack image and replace with openJack.
+    document.getElementById('jib').src="imgs/openJack.png";
 
     let starRandomNum = Math.floor(Math.random() * 10);
     escapekey += starRandomNum;
@@ -312,18 +329,27 @@ chest.addEventListener('click', function () {
   console.log(escapekey);
   let roomExitTest = prompt('What is the password to leave?');
   if (roomExitTest === escapekey) {
-    console.log('Congrats, you\'ve made it out');
-    localStorage.setItem("win", true);
-    localStorage.setItem("points", roomTotalTime);
-    window.location.href = "/gameOver.html";
+    document.getElementById('chest').src="imgs/treasureChestOpen.png";
+    document.getElementById('pinkKey').style.display = "inline-block";
+    // Set the pinkKey up.
+    // console.log('Congrats, you\'ve made it out');
+    // localStorage.setItem("win", true);
+    // localStorage.setItem("points", roomTotalTime);
+    // window.location.href = "/gameOver.html";
   } else {
     console.log('Sorry, wrong key!');
   }
 
 });
 
+// Grab the key to finish the game.
+pinkKey.addEventListener('click', function(){
+  console.log('Congrats, you\'ve made it out');
+  localStorage.setItem("win", true);
+  localStorage.setItem("points", roomTotalTime);
+  window.location.href = "/gameOver.html";
 
-
+});
 
 
 
@@ -336,7 +362,31 @@ chest.addEventListener('click', function () {
 // // console.log(star1.dom.className);
 
 function refreshEscapeKey(escapekey) {
-  let balloons = document.getElementById('balloons');
-  balloons.textContent = escapekey;
+  // let balloons = document.getElementById('balloons');
+  // balloons.textContent = escapekey;
+  // Add answer.value to yellow balloon.
+  // let yellowBalloon = document.getElementById('yellow');
+  let yellowBalloon = document.querySelector('body > map > area:nth-child(5)');
+  let tag = document.createElement('p');
+  let yellowEscapeKey = escapekey.charAt(0);
+  tag.textContent = yellowEscapeKey;
+  yellowBalloon.appendChild(tag);
+
+  // Add answer.value to yellow balloon.
+  // let blueBalloon = document.getElementById('blue');
+  let blueBalloon = document.querySelector('body > map > area:nth-child(6)');
+  let tag1 = document.createElement('p');
+  let blueEscapeKey = escapekey.charAt(1);
+  tag1.textContent = blueEscapeKey;
+  blueBalloon.appendChild(tag1);
+  
+  // Add answer.value to yellow balloon.
+  // let greenBalloon = document.getElementById('green');
+  let greenBalloon = document.querySelector('body > map > area:nth-child(4)');
+  let tag2 = document.createElement('p');
+  let greenEscapeKey = escapekey.charAt(2);
+  tag2.textContent = greenEscapeKey;
+  greenBalloon.appendChild(tag2);
+  
 }
 
