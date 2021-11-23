@@ -3,7 +3,7 @@
 }
 
 body {
-  width: 550px;
+  width: 960px;
 }
 
 body header {
@@ -20,15 +20,23 @@ main div p {
 }
 
 #enterRoom {
-  display: block;
-  margin: 0 auto;
+  position: relative;
+  display: flex;
+  /* float: right; */
+  margin: 0 60%;
+  z-index: -1;
 }
 
 #aboutUs {
   height: 100px;
-  position: absolute;
-  top: 300px;
-  left: 740px;
+  /* position: absolute; */
+  position: relative;
+  display: flex;
+  /* float: right; */
+  margin: -40% 69%;
+  z-index: 10;
+  /* top: 300px;
+  left: 740px; */
 }
 
 /* About Us specific formatting. */
@@ -109,11 +117,12 @@ footer {
   top: 3px;
 }
 
-.gamePage {
-  background: url('../imgs/Background.jpg');
+/* .gamePage {
+  /* background: url('../imgs/Background.jpg'); */
+  background: url('../imgs/room.png');
   background-size: 550px 600px;
   background-repeat: no-repeat;
-}
+} */
 
 #digitalClock {
   width: 75px;
@@ -157,8 +166,8 @@ footer {
 #jib {
   position: absolute;
   width: 100px;
-  top: 405px;
-  left: 5px;
+  top: 450px;
+  left: 200px;
 }
 
 #star1,

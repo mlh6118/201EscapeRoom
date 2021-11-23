@@ -75,10 +75,10 @@ let res = '';
 //Treasure Box escapes
 
 //selectors
-let book = document.getElementById('book');
+let book = document.querySelector('body > map > area:nth-child(2)');
 let jib = document.getElementById('jib');
-let blocks = document.getElementById('blocks');
-let chest = document.getElementById('chest');
+let blocks = document.querySelector('body > map > area:nth-child(1)');
+let chest = document.querySelector('body > map > area:nth-child(3)');
 
 let randomQuestion = '';
 
@@ -365,21 +365,24 @@ function refreshEscapeKey(escapekey) {
   // let balloons = document.getElementById('balloons');
   // balloons.textContent = escapekey;
   // Add answer.value to yellow balloon.
-  let yellowBalloon = document.getElementById('yellow');
+  // let yellowBalloon = document.getElementById('yellow');
+  let yellowBalloon = document.querySelector('body > map > area:nth-child(5)');
   let tag = document.createElement('p');
   let yellowEscapeKey = escapekey.charAt(0);
   tag.textContent = yellowEscapeKey;
   yellowBalloon.appendChild(tag);
 
   // Add answer.value to yellow balloon.
-  let blueBalloon = document.getElementById('blue');
+  // let blueBalloon = document.getElementById('blue');
+  let blueBalloon = document.querySelector('body > map > area:nth-child(6)');
   let tag1 = document.createElement('p');
   let blueEscapeKey = escapekey.charAt(1);
   tag1.textContent = blueEscapeKey;
   blueBalloon.appendChild(tag1);
   
   // Add answer.value to yellow balloon.
-  let greenBalloon = document.getElementById('green');
+  // let greenBalloon = document.getElementById('green');
+  let greenBalloon = document.querySelector('body > map > area:nth-child(4)');
   let tag2 = document.createElement('p');
   let greenEscapeKey = escapekey.charAt(2);
   tag2.textContent = greenEscapeKey;
