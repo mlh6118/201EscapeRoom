@@ -337,7 +337,7 @@ function starSizeCheck() {
 chest.addEventListener('click', function () {
   console.log(escapekey);
   let roomExitTest = prompt('What is the password to leave?');
-  if (roomExitTest === escapekey && (jibTest===true &&)) {
+  if (roomExitTest === escapekey && (jibTest===true && blocksTest===true && bookTest===true)) {
     // document.getElementById('chest').src="imgs/treasureChestOpen.png";
     document.getElementById('pinkKey').style.display = "inline-block";
     // Set the pinkKey up.
