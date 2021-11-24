@@ -9,6 +9,9 @@ if (localStorage.getItem("win") === true) {
   window.location.href = "/index.html";
 }
 
+let jibTest = false;
+let blocksTest = false;
+let bookTest = false;
 
 let db = [
 
@@ -76,6 +79,7 @@ let res = '';
 
 //selectors
 let book = document.querySelector('body > map > area:nth-child(2)');
+// console.log(book)
 let jib = document.getElementById('jib');
 let blocks = document.querySelector('body > map > area:nth-child(1)');
 let chest = document.querySelector('body > map > area:nth-child(3)');
@@ -83,6 +87,7 @@ let chest = document.querySelector('body > map > area:nth-child(3)');
 let randomQuestion = '';
 
 book.addEventListener('click', function () {
+  // alert('clicked')
   randomQuestion = Math.floor(Math.random() * db.length);
   console.log(randomQuestion);
   res = db[randomQuestion].question;
@@ -218,6 +223,7 @@ function blockLetterCheck() {
     let blockRandomNum = Math.floor(Math.random() * 10);
     escapekey += blockRandomNum;
     refreshEscapeKey(escapekey);
+    blocksTest = true;
     console.log(escapekey);
 
     // Change the jack in the box image.
@@ -297,6 +303,8 @@ function starSizeCheck() {
     // alert('You are correct');
 
     // Remove existing closedJack image and replace with openJack.
+
+    //TODO: Error with jumping JIB here because of placement by top left pixel and size
     document.getElementById('jib').src="imgs/openJack.png";
 
     let starRandomNum = Math.floor(Math.random() * 10);
@@ -306,6 +314,7 @@ function starSizeCheck() {
     let parent = document.getElementById('modal').parentElement;
     let modal = document.getElementById('modal');
     parent.removeChild(modal);
+    jibTest = true;
 
     // Change the jack in the box image.
     // jackBoxOpenClose.src = "imgs/openJack.png";
@@ -328,8 +337,8 @@ function starSizeCheck() {
 chest.addEventListener('click', function () {
   console.log(escapekey);
   let roomExitTest = prompt('What is the password to leave?');
-  if (roomExitTest === escapekey) {
-    document.getElementById('chest').src="imgs/treasureChestOpen.png";
+  if (roomExitTest === escapekey && (jibTest===true && blocksTest===true && bookTest===true)) {
+    // document.getElementById('chest').src="imgs/treasureChestOpen.png";
     document.getElementById('pinkKey').style.display = "inline-block";
     // Set the pinkKey up.
     // console.log('Congrats, you\'ve made it out');
@@ -366,27 +375,41 @@ function refreshEscapeKey(escapekey) {
   // balloons.textContent = escapekey;
   // Add answer.value to yellow balloon.
   // let yellowBalloon = document.getElementById('yellow');
-  let yellowBalloon = document.querySelector('body > map > area:nth-child(5)');
-  let tag = document.createElement('p');
+  // let yellowBalloon = document.querySelector('body > map > area:nth-child(5)');
+  let body = document.querySelector('body');
+  // console.log(body);
+
+  // let balloonsDiv = document.createElement('div');
+  // balloonsDiv.id='balloons';
+  // body.appendChild(balloonsDiv);
+
+  // let tag = document.createElement('p');
+  // tag.id="yellowBalloon";
+  let tag = document.getElementById('yellowBalloon');
   let yellowEscapeKey = escapekey.charAt(0);
   tag.textContent = yellowEscapeKey;
-  yellowBalloon.appendChild(tag);
+  // balloonsDiv.appendChild(tag);
 
   // Add answer.value to yellow balloon.
   // let blueBalloon = document.getElementById('blue');
-  let blueBalloon = document.querySelector('body > map > area:nth-child(6)');
-  let tag1 = document.createElement('p');
+  // let blueBalloon = document.querySelector('body > map > area:nth-child(6)');
+  // let tag1 = document.createElement('p');
+  // tag1.id = "blueBalloon";
+  let tag1 = document.getElementById('blueBalloon');
   let blueEscapeKey = escapekey.charAt(1);
   tag1.textContent = blueEscapeKey;
-  blueBalloon.appendChild(tag1);
+  // balloonsDiv.appendChild(tag1);
   
   // Add answer.value to yellow balloon.
   // let greenBalloon = document.getElementById('green');
-  let greenBalloon = document.querySelector('body > map > area:nth-child(4)');
-  let tag2 = document.createElement('p');
+  // let greenBalloon = document.querySelector('body > map > area:nth-child(4)');
+  // let tag2 = document.createElement('p');
+  // tag2.id = "greenBalloon";
+  let tag2 = document.getElementById('greenBalloon');
   let greenEscapeKey = escapekey.charAt(2);
   tag2.textContent = greenEscapeKey;
-  greenBalloon.appendChild(tag2);
-  
+  // greenBalloon.appendChild(tag2);
+  // balloonsDiv.appendChild(tag2);
+
 }
 
