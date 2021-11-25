@@ -98,11 +98,22 @@ book.addEventListener('click', function () {
 
 let passwordNameArr = [];
 
+
+
+
+
+
+
+
+
+let nameArr = [];
+let nameArr2 = [];
+
 blocks.addEventListener('click', function () {
   let helloWorld = new PromptModal('blocks');
 
 
-  let nameArr = [];
+  
   let enter = document.getElementById('enter');
   // console.log(enter);
 
@@ -116,7 +127,7 @@ blocks.addEventListener('click', function () {
     let inputValue3 = document.getElementById('letter3').value;
     // console.log(inputValue1, inputValue2, inputValue3);
     nameArr = [inputValue1, inputValue2, inputValue3];
-
+    nameArr2 = nameArr.slice();
 
 
     console.log('nameArr:' + nameArr)
@@ -162,8 +173,6 @@ blocks.addEventListener('click', function () {
     let block1 = new Block(letter1, passwordNameArr);
     let block2 = new Block(letter2, passwordNameArr);
     let block3 = new Block(letter3, passwordNameArr);
-
-
 
 
   });
@@ -218,7 +227,7 @@ function blockLetterCheck() {
     let removeModal = document.getElementById('modal');
     // document.removeChild(removeModal);
     removeModal.remove();
-
+    localStorage.setItem('initials', nameArr2);
 
     let blockRandomNum = Math.floor(Math.random() * 10);
     escapekey += blockRandomNum;
