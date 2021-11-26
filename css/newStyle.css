@@ -1,0 +1,349 @@
+* {
+  box-sizing: border-box;
+}
+
+/* body {
+  width: 960px;
+} */
+
+body header {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 35px;
+  text-align: center;
+  margin: 5px 0 15px 0;
+}
+
+main div p {
+  font-family: 'Caveat Brush', cursive;
+  font-size: 25px;
+  margin: 0 0 0 50px;
+}
+
+#enterRoom {
+  position: relative;
+  display: flex;
+  /* float: right; */
+  margin: 0 60%;
+  z-index: -1;
+}
+
+#aboutUs {
+  height: 100px;
+  /* position: absolute; */
+  position: relative;
+  display: flex;
+  /* float: right; */
+  margin: -40% 69%;
+  z-index: 10;
+  /* top: 300px;
+  left: 740px; */
+}
+
+/* About Us specific formatting. */
+.david {
+  font-family: 'Caveat Brush', cursive;
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+}
+
+#davidPic {
+  height: 250px;
+  float: left;
+  margin: 0 0 15px 15px;
+}
+
+.marni {
+  font-family: 'Caveat Brush', cursive;
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+}
+
+#marniPic {
+  height: 250px;
+  float: left;
+  margin: 15px 0 15px 15px;
+}
+
+.marni>p {
+  width: 960px;
+}
+
+a:visited {
+  color: blue;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  margin: 15px;  
+}
+
+/* Game Page specific formatting. */
+/* Clock */
+@font-face {
+  font-family: 'clockFont';
+  src: url('../imgs/digital-7.woff2') format('woff2');
+}
+
+#timerDiv {
+  font-family: 'clockFont';
+  text-shadow: 1px 1px 0px #000000;
+  font-size: 25px;
+  color: red;
+  position: relative;
+  top: 400px;
+  left: 450px;
+  /* transform-style: preserve-3d; */
+  /* transform: rotateX(-25deg); */
+}
+
+#minutes {
+  display: inline;
+  position: absolute;
+  left: 10px;
+  top: 1px;
+}
+
+#timeDivider {
+  display: inline;
+  position: absolute;
+  left: 32px;
+  top: 1px;
+}
+
+#seconds {
+  display: inline;
+  position: absolute;
+  left: 40px;
+  top: 1px;
+}
+
+/* .gamePage {
+  /* background: url('../imgs/Background.jpg');
+  background: url('../imgs/room.png');
+  background-size: 550px 600px;
+  background-repeat: no-repeat;
+} */
+
+#digitalClock {
+  width: 75px;
+    -webkit-box-shadow: 2px -1px 6px 2px rgba(0,0,0,0.35);
+  -moz-box-shadow: 3px -2px 6px 2px rgba(0,0,0,0.35);
+  box-shadow: 2px -2px 6px 0px rgba(0,0,0,0.55);
+}
+
+/* Balloons */
+#balloons {
+  position: absolute;
+  top: 135px;
+  left: 415px;
+  z-index: 1;
+}
+
+#blue {
+  position: absolute;
+  top: 15px;
+  left: 35px;
+}
+
+#green {
+  position: absolute;
+  top: 10px;
+  left: 65px;
+}
+
+#book {
+  position: absolute;
+  width: 50px;
+  top: 210px;
+  left: 305px;
+}
+
+#book:hover,
+#jib:hover,
+#blocks:hover,
+#chest:hover,
+#pinkKey:hover {
+  cursor: pointer;
+}
+
+#jib {
+  position: absolute;
+  width: 100px;
+  top: 615px;
+  left: 375px;
+}
+
+
+#star1,
+#star2,
+#star3 {
+  width: 100px;
+}
+
+#blocks {
+  position: absolute;
+  width: 75px;
+  top: 370px;
+  left: 200px;
+}
+
+#chest {
+  position: absolute;
+  width: 100px;
+  top: 265px;
+  left: 40px;
+}
+
+#pinkKey {
+  position: absolute;
+   /* width: 125px; */
+  top: 300px;
+  left: 500px;
+  padding: 10px 10px;
+}
+
+#key {
+  width: 75px;
+}
+
+#yellowBalloon {
+  position: absolute;
+  top: 20px;
+  left: 35px;
+  font-family: fantasy;
+  font-size: 45px;
+  z-index: 75;
+}
+
+#blueBalloon {
+  position: absolute;
+  top: 60px;
+  left: 75px;
+  font-family: fantasy;
+  font-size: 45px;
+  z-index: 75;
+}
+
+#greenBalloon {
+  position: absolute;
+  top: 20px;
+  left: 120px;
+  font-family: fantasy;
+  font-size: 45px;
+  z-index: 75;
+}
+
+#modal {
+  position: absolute;
+  top: 700px;
+  left: 100px;
+  z-index: 10;
+  background-color:burlywood;
+  border: #71531b 3px solid;
+  padding: 5px;
+}
+
+#randomInitials {
+  position:absolute;
+  top: 225px;
+  left: 100px;
+  font-family: 'pillow';
+  font-size: 125px;
+  font-weight: 900;
+  transform-style: preserve-3d;
+  transform: rotateY(70deg);
+}
+
+@font-face {
+  font-family: 'pillow';
+  src: url('../imgs/MCKLSH.woff2') format('woff2');
+}
+
+
+
+h1 {
+  font-family: 'Caveat Brush', cursive;
+  font-size: 35px;
+  position: absolute;
+  top: 10%;
+  left: 10%;
+}
+
+table {
+  background: burlywood;
+  font-family: 'Caveat Brush', cursive;
+  font-size: 25px;
+  position: absolute;
+  top: 40%;
+  left: 10%;
+}
+
+thead,
+tbody {
+  border: blue 1px solid;
+}
+
+tr {
+  border: blue 1px solid;
+}
+
+td,
+th {
+  border: blue 1px solid;
+  padding: 10px;
+  text-align: center;
+}
+
+#winOrLose {
+  position: absolute;
+  font-family: 'Caveat Brush', cursive;
+  font-size: 25px;
+  top: 20%;
+  left: 10%;
+}
+
+#replay {
+  position: absolute;
+  top: 25%;
+  left: 10%;
+  font-family: 'Caveat Brush', cursive;
+  font-size: 25px;
+  background: blue;
+  color: white;
+  padding: 5px;
+  border-radius: 8px;
+}
+
+#replay:hover {
+  background: red;
+}
+
+h2 {
+  position: absolute;
+  font-family: 'Caveat Brush', cursive;
+  font-size: 25px;
+  top: 35%;
+  left: 10%;
+}
+
+a {
+  position: absolute;
+  font-family: 'Caveat Brush', cursive;
+  font-size: 25px;
+  bottom: 15%;
+  left: 10%;
+}
+
+#gameOver {
+  background:lightcoral;
+}
+
+#toys {
+  width: 250px;
+  position: absolute;
+  bottom: 35%;
+  left: 35%;
+} 
